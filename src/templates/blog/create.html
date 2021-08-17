@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block header %} {% endblock %} {% block content %}
+
+<h1 class="my-3">New Post</h1>
+
+{% include 'partials/_messages.html'%}
+
+<form method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      name="title"
+      id="title"
+      value="{{ request.form['title'] }}"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea class="form-control" name="body" id="body">
+{{ request.form['body'] }}</textarea
+    >
+  </div>
+  <input type="submit" class="btn btn-sm btn-primary mt-3" value="Save" />
+</form>
+{% endblock %}
