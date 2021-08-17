@@ -1,0 +1,17 @@
+{% for message in get_flashed_messages(with_categories=True) %}
+<div
+  class="
+    {%
+    if
+    message[0]=='error'
+    %}
+    alert alert-danger
+    {%else%}
+    alert alert-{{message[0]}}
+    {%endif%}
+  "
+  role="alert"
+>
+  <div class="flash">{{ message[1] }}</div>
+</div>
+{% endfor %}
